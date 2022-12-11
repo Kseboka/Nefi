@@ -1,0 +1,5 @@
+export { default as Home } from './home/Home'
+export { default as Signup } from './signup/Signup'
+export { default as Login } from './login/Login'
+export { default as Gym } from './gym/Gym'
+export { default as Member } from './member/Member'
