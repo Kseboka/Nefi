@@ -8,7 +8,7 @@ const Navbar = () => {
   const { width } = useViewportSize()
 
   return (
-    <div className='fixed bottom-0 left-0 w-full px-4 pb-4 md:top-0 md:h-full md:py-8'>
+    <div className='fixed bottom-0 left-0 z-20 w-full px-4 pb-4 md:top-0 md:h-full md:py-8 md:ml-6'>
       <Paper
         className='w-full px-6 py-3 bg-midnight md:h-full md:w-fit md:flex md:flex-col md:justify-between md:items-center md:px-6'
         radius='md'
@@ -23,7 +23,7 @@ const Navbar = () => {
           <NavLink icon={<IconUsers className='md:w-8 md:h-8' />} label='Members' />
           <NavLink icon={<IconReceipt2 className='md:w-8 md:h-8' />} label='Billing' />
         </div>
-        <div className='fixed top-0 right-0 flex items-center justify-center p-3 mt-6 mr-4 border rounded-full bg-midnight border-neutral-700 md:static md:border-0 md:bg-inherit md:mr-0 md:mt-0 md:mb-6'>
+        <div className='fixed top-0 right-0 z-20 flex items-center justify-center p-3 mt-6 mr-4 border rounded-full bg-midnight border-neutral-700 md:static md:border-0 md:bg-inherit md:mr-0 md:mt-0 md:mb-6'>
           <NavLink icon={<IconBarbell className='w-6 h-6 md:h-8 md:w-8' />} label={width < 768 ? '' : 'Account'} />
         </div>
       </Paper>
