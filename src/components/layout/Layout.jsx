@@ -4,13 +4,15 @@ import DashHeader from '../header/DashHeader'
 
 const Layout = ({ children, header }) => {
   return (
-    <div className='relative w-full h-full px-5 md:pr-28 py-7'>
-      <div className=' md:ml-48'>
-        <DashHeader who={header} />
-        {children}
+    <>
+      <div className='h-full px-6 py-7 md:pb-0'>
+        <div className='pb-28 md:ml-40 md:mr-14 md:h-full md:pb-0'>
+          <DashHeader who={header} />
+          {children}
+        </div>
+        <Navbar />
       </div>
-      <Navbar />
-    </div>
+    </>
   )
 }
 
