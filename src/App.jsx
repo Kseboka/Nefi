@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Login, Signup, Home, Gym, Member } from './pages'
+import { Login, Signup, Home, Gym, Member, CheckIn } from './pages'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +14,8 @@ function App() {
           <Route path='/login/:who' element={<Login />} />
           <Route path='/signup/:who' element={<Signup />} />
           <Route path='/gym' element={<Gym />} />
+          <Route path='/gym/checkin' element={<CheckIn />} />
+          <Route path='/gym/checkin/:memberId' element={<CheckIn />} />
           <Route path='/member' element={<Member />} />
         </Routes>
       </Router>
