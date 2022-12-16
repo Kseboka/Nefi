@@ -13,16 +13,19 @@
     "@mantine/core": "^5.9.3",
     "@mantine/form": "^5.9.3",
     "@mantine/hooks": "^5.9.3",
-    "@supabase/supabase-js": "github:supabase/supabase-js",
+    "@supabase/supabase-js": "^2.1.4",
     "@tabler/icons": "^1.116.1",
-    "@yudiel/react-qr-scanner": "^1.0.8",
     "chart.js": "^4.0.1",
+    "date-fns": "^2.29.3",
+    "downloadjs": "^1.4.7",
     "react": "^18.2.0",
+    "react-camera-pro": "^1.2.1",
     "react-chartjs-2": "^5.0.1",
     "react-dom": "^18.2.0",
-    "react-qr-reader": "^3.0.0-beta-1",
     "react-router-dom": "^6.4.5",
-    "react-web-qr-reader": "^1.0.4"
+    "react-supabase": "^0.2.0",
+    "react-web-qr-reader": "^1.0.4",
+    "react-webcam": "^7.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
