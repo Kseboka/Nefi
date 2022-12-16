@@ -1,18 +1,22 @@
-import React, { Children } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../navigation/Navbar'
 import DashHeader from '../header/DashHeader'
+import { useAuth } from '../../contexts/auth'
+import { Navigate, Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
 
-const Layout = ({ children, header }) => {
+const Layout = () => {
+  const { isAuth, user } = useAuth()
+  const location = useLocation()
+
   return (
-    <>
-      <div className='h-full px-6 py-7 md:pb-0'>
-        <div className='pb-28 md:ml-40 md:mr-14 md:h-full md:pb-0'>
-          <DashHeader who={header} />
-          {children}
-        </div>
-        <Navbar />
+    <div className='h-full px-6 py-7 md:pb-0'>
+      <div className='pb-28 md:ml-40 lg:mr-12 md:h-full md:pb-0'>
+        <DashHeader who={location.pathname} />
+        {!isAuth && <Navigate to='/login' />}
+        <Outlet />
       </div>
-    </>
+      <Navbar />
+    </div>
   )
 }
 
