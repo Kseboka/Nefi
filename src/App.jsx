@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Login, Signup, Home, Gym, Member, CheckIn } from './pages'
+import { Layout } from './components'
+import { AuthProvider } from './contexts/auth'
+import { Login, Signup, Home, Gym, Member, CheckIn, MemberPage, AddMember } from './pages'
+import GymHome from './pages/gym/GymHome'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -8,17 +11,30 @@ function App() {
   return (
     <div className='w-screen h-screen bg-obsidian text-slate-200'>
       <Router>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/login/:who' element={<Login />} />
-          <Route path='/signup/:who' element={<Signup />} />
-          <Route path='/gym' element={<Gym />} />
-          <Route path='/gym/checkin' element={<CheckIn />} />
-          <Route path='/gym/checkin/:memberId' element={<CheckIn />} />
-          <Route path='/member' element={<Member />} />
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/login/:user_id' element={<Login />} />
+            <Route path='/signup/:user_id' element={<Signup />} />
+
+            {/* GYM */}
+            <Route path='/gym' element={<Layout />}>
+              <Route path='/gym' element={<Gym />} />
+              <Route path='/gym/checkin' element={<CheckIn />} />
+              <Route path='/gym/checkin/:memberId' element={<CheckIn />} />
+              <Route path='/gym/members' element={<MemberPage />} />
+              <Route path='/gym/add-member' element={<AddMember />} />
+            </Route>
+          </Routes>
+        </AuthProvider>
       </Router>
+
+      {/* Gym and gym sub pages */}
+
+      {/* Member and member sub pages */}
+      {/* <Route path='/member' element={<Member />} />
+        </Routes> */}
     </div>
   )
 }
