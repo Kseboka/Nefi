@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Layout } from './components'
 import { AuthProvider } from './contexts/auth'
-import { Login, Signup, Home, Gym, Member, CheckIn, MemberPage, AddMember } from './pages'
+import { Login, Signup, Home, Gym, Member, CheckIn, MemberPage, AddMember, MemberInfo } from './pages'
 import GymHome from './pages/gym/GymHome'
 
 function App() {
@@ -24,7 +24,8 @@ function App() {
               <Route path='/gym/checkin' element={<CheckIn />} />
               <Route path='/gym/checkin/:memberId' element={<CheckIn />} />
               <Route path='/gym/members' element={<MemberPage />} />
-              <Route path='/gym/add-member' element={<AddMember />} />
+              <Route path='/gym/members/add-member' element={<AddMember />} />
+              <Route path='/gym/members/:member_id' element={<MemberInfo />} />
             </Route>
           </Routes>
         </AuthProvider>
