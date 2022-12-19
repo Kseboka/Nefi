@@ -40,7 +40,7 @@ const Signup = () => {
       const { data: gym, error } = await supabase
         .from('gyms')
         .insert({
-          id: data.user.id,
+          id: data.user?.id,
           name: form.values.name,
           location: form.values.location,
           email: form.values.email,
@@ -48,9 +48,8 @@ const Signup = () => {
         })
         .select()
 
-      console.log('gym: ', gym)
-
       if (error) throw error
+      console.log('gym: ', gym)
     } catch (error) {
       console.log('error: ', error)
     }
