@@ -25,7 +25,6 @@ const AddMember = () => {
       lastName: '',
       phone: '',
       email: '',
-      // membership: null,
     },
 
     validate: {
@@ -131,9 +130,7 @@ const AddMember = () => {
           </Alert>
         </div>
       ) : null}
-      {/* <div className='mb-10 text-4xl text-center md:text-4xl'>
-        <h2>Member Registration</h2>
-      </div> */}
+
       <Paper className='px-4 py-6 bg-midnight lg:py-8 lg:flex md:py-6' radius='md' withBorder>
         <div className='lg:w-1/2'>
           <ProfilePic file={file} setFile={setFile} />

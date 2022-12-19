@@ -4,9 +4,13 @@ export { default as LinkBtn } from './buttons/LinkBtn'
 export { default as Navbar } from './navigation/Navbar'
 export { default as NavLink } from './navigation/NavLink'
 export { default as Overview } from './overview/Overview'
+
 export { default as OverviewCard } from './overview/OverviewCard'
+export { default as RenewBtn } from './buttons/RenewBtn'
+
 export { default as RevenueOverview } from './overview/RevenueOverview'
 export { default as Layout } from './layout/Layout'
 export { default as MemberCard } from './card/MemberCard'
 export { default as MemberTable } from './table/MemberTable'
 export { default as ProfilePic } from './profile-pic/ProfilePic'
+export { default as AttendanceGraph } from './chart/AttendanceGraph'

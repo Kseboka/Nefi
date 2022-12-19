@@ -1,13 +1,9 @@
-import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Layout } from './components'
 import { AuthProvider } from './contexts/auth'
 import { Login, Signup, Home, Gym, Member, CheckIn, MemberPage, AddMember, MemberInfo } from './pages'
-import GymHome from './pages/gym/GymHome'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className='w-screen h-screen bg-obsidian text-slate-200'>
       <Router>
@@ -28,14 +24,10 @@ function App() {
               <Route path='/gym/members/:member_id' element={<MemberInfo />} />
             </Route>
           </Routes>
+          {/* Member and member sub pages */}
+          {/* <Route path='/member' element={<Member />} /> */}
         </AuthProvider>
       </Router>
-
-      {/* Gym and gym sub pages */}
-
-      {/* Member and member sub pages */}
-      {/* <Route path='/member' element={<Member />} />
-        </Routes> */}
     </div>
   )
 }

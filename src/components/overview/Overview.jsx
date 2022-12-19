@@ -9,6 +9,7 @@ import { IconFriends, IconUserPlus, IconChevronsDown } from '@tabler/icons'
 const Overview = ({ members }) => {
   const [totalMembers, setTotalMembers] = useState(null)
   const [newMembers, setNewMembers] = useState(null)
+  const [presentToday, setPresentToday] = useState(null)
 
   useEffect(() => {
     getMembers()
@@ -21,6 +22,7 @@ const Overview = ({ members }) => {
       // console.log(members)
       setTotalMembers(members.length)
       setNewMembers(getNewMembers(members))
+      setPresentToday(getMembersPresentToday(members))
     } catch (error) {
       console.log(error)
     }
@@ -35,8 +37,22 @@ const Overview = ({ members }) => {
     return newMembers.length
   }
 
+  const getMembersPresentToday = (members) => {
+    const todayDate = format(new Date(), 'yyyy-MM-dd')
+
+    const presentMembers = members.filter((member) => {
+      console.log(member.last_present, ' last present')
+      console.log(todayDate, ' today')
+      if (todayDate === member.last_present) return member
+    })
+
+    console.log(presentMembers)
+
+    return presentMembers.length
+  }
+
   return (
-    <Paper className='flex flex-col gap-4 px-6 py-6 bg-midnight md:flex-row' withBorder shadow='lg' radius='md'>
+    <Paper className='flex flex-col gap-4 px-6 py-6 bg-midnight md:flex-row  mb-8' withBorder shadow='lg' radius='md'>
       <OverviewCard
         whatFor='Total Members'
         bgColor='bg-blue-500'
@@ -53,6 +69,7 @@ const Overview = ({ members }) => {
         whatFor='Present Today'
         bgColor='bg-orange-500'
         icon={<IconChevronsDown className='w-10 h-10 md:h-24 md:w-24' />}
+        stat={presentToday}
       />
     </Paper>
   )

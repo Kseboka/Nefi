@@ -9,7 +9,7 @@ const Home = () => {
         <HomeHeader />
         <div className='flex gap-4 mt-2'>
           <LinkBtn link='/login/gym' btnLabel='Gym' />
-          <LinkBtn link='/login/member' btnLabel='Member' />
+          {/* <LinkBtn link='/login/member' btnLabel='Member' /> */}
         </div>
       </Center>
     </div>

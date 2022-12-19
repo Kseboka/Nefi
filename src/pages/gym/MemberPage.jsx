@@ -20,7 +20,7 @@ const MemberPage = () => {
     try {
       const { data: members, error } = await supabase.from('members').select()
       if (error) throw error
-      console.log(members)
+      // console.log(members)
       setMembers(members)
       setActiveMembers(getActiveMembers(members))
       setInactiveMembers(members.length - getActiveMembers(members))
@@ -32,10 +32,11 @@ const MemberPage = () => {
     const todayDate = format(new Date(), 'yyyy-MM-dd')
 
     const activeCount = members.filter((member) => isAfter(parseISO(member.membership_end_date), parseISO(todayDate)))
-    console.log('active members: ', activeCount)
+    // console.log('active members: ', activeCount)
 
     return activeCount.length
   }
+
   return (
     <div className='flex flex-col h-full gap-8'>
       <Paper className='flex flex-col w-full gap-4 p-4 md:flex-row bg-midnight' radius='md' withBorder>
@@ -54,27 +55,22 @@ const MemberPage = () => {
       </Paper>
 
       <Paper
-        className='flex flex-col justify-between w-full overflow-scroll h-96 md:h-3/5 bg-midnight'
+        className='flex flex-col py-4 w-full overflow-scroll h-96 md:min-h-fit md:max-h-[3/5] bg-midnight '
         radius='md'
         withBorder
       >
-        <h2 className='sticky px-4 my-2 text-2xl font-black'>Member List</h2>
-        <div className='px-4'>{members && <MemberTable members={members} />}</div>
-
-        <Link to='/gym/add-member' className='sticky bottom-0 flex justify-center w-full py-4 bg-midnight'>
-          <div className='sticky px-8 py-1 rounded-md border-1 border-neutral-400'>
-            <IconUserPlus className='w-8 h-8 text-neutral-100' />
-          </div>
-        </Link>
+        <div className=' flex items-center justify-between w-full px-4'>
+          <h2 className='my-2 text-2xl font-black '>Member List</h2>
+          <Link to='/gym/members/add-member' className=' bg-midnight'>
+            <div className='py-1 rounded-md border-1 border-neutral-400'>
+              <IconUserPlus className='w-8 h-8 text-neutral-100' />
+            </div>
+          </Link>
+        </div>
+        <div className='w-full px-4'>{members && <MemberTable members={members} />}</div>
       </Paper>
     </div>
   )
 }
 
 export default MemberPage
-
-{
-  /* <Paper className='fixed p-4 top-8 right-8 bg-midnight' withBorder radius='xl' shadow='xl'>
-  <NavLink label='Add Member' icon={<IconUserPlus />} />
-</Paper> */
-}
